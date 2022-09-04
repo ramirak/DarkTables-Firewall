@@ -1,0 +1,13 @@
+{
+    "default": [
+        {"name":"http", "port":"80", "proto":["tcp","udp"]},
+        {"name":"https", "port":"443","proto":["tcp","udp"]},
+        {"name":"dns", "port":"53","proto":["udp"]},
+        {"name":"dhcp1", "port":"67","proto":["tcp","udp"]},
+        {"name":"dhcp2", "port":"68","proto":["tcp","udp"]}
+    ],
+    "user_defined":[
+        {"name":"mal-A", "port":"4444","proto":["tcp"]},
+        {"name":"mal-B", "port":"5555","proto":["tcp"]}
+    ]
+}

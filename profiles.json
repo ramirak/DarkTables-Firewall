@@ -1,0 +1,17 @@
+{
+    "basic-usage": [
+        ["OUTPUT", "any","any", "80",["udp","tcp"],"ACCEPT"],
+        ["OUTPUT", "any","any", "443",["udp","tcp"],"ACCEPT"],
+        ["OUTPUT", "any","any", "53",["udp"],"ACCEPT"],
+        ["OUTPUT", "any","any", "67",["udp","tcp"],"ACCEPT"],
+        ["OUTPUT", "any","any", "68",["udp","tcp"],"ACCEPT"]        
+    ],
+    "paranoid":[
+        ["OUTPUT", "any","any", "any",["any"],"DROP"],
+        ["INPUT", "any","any", "any",["any"],"DROP"]               
+    ],
+    "hero":[
+        ["OUTPUT", "any","any", "any",["any"],"ACCEPT"],
+        ["INPUT", "any","any", "any",["any"],"ACCEPT"]               
+    ]
+}

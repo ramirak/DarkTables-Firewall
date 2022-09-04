@@ -1,0 +1,11 @@
+{
+    "default": [
+        {"name":"localhost", "ipaddr":"127.0.0.1"},
+        {"name":"gateway", "ipaddr":"192.168.1.1"}
+    ],
+    "user_defined":[
+        {"name":"host-A", "ipaddr":"1.1.1.1"},
+        {"name":"host-B", "ipaddr":"2.2.2.2"},
+        {"name":"host-C", "ipaddr":"3.3.3.3"}
+    ]
+}
