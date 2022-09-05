@@ -1,6 +1,6 @@
 import os, sys
 import data_handler, interactions
-from ip_t import set_rule
+from ip_t import set_rule, switch_mode
 
 def init():
     hosts = data_handler.retrieve_hosts()
@@ -24,7 +24,9 @@ def main_menu(hosts,services,chains):
     choice = -1;
     while choice == -1:
         choice = assert_choice(input("\n> "))
-        if choice == interactions.OP_PROFILES:
+        if choice == interactions.OP_MODES:
+            modes_menu()
+        elif choice == interactions.OP_PROFILES:
             load_profile_menu()
         elif choice == interactions.OP_OBJECTS:
             object_creation_menu(hosts,services,chains)
@@ -67,7 +69,11 @@ def rules_menu(hosts,services,chains):
         if choice == interactions.RULE_ADD:
             add_rule_menu(hosts,services,chains)
         elif choice == interactions.RULE_LIST:
-            pass
+            res = input("Are you sure you would like to block all addresses in the list? [y/n] >  ")
+            if(res == "y"):
+                ip_list = data_handler.retrieve_block_list()
+                for addr in ip_list:
+                    set_rule("OUTBOUND", "any", addr,"any","any","DROP")
         elif choice == interactions.RULE_BACK:
             return
         else:
@@ -77,6 +83,7 @@ def rules_menu(hosts,services,chains):
 
 def add_rule_menu(hosts, services, chains):
     rule = []
+    action = "DROP"
     # Chain
     print("\nChoose chain - \n")
     interactions.show_chains_menu()
@@ -121,10 +128,20 @@ def add_rule_menu(hosts, services, chains):
             choice = -1 
             num_srv +=1 
 
+    choice = -1
+    while choice == -1:
+        print("\nAction to perform -\n(1) Drop\n(2) Accept")
+        choice = assert_choice(input("\n> "))
+        if(choice != 1 and choice != 2):
+            choice = -1
+    
+    if choice == 2:
+        action = "ACCEPT"   
+        
     # Rule setup
     for ns in range(num_srv):
         for i in range(len(services[rule[3]].getProtocol())):
-            set_rule(chains[rule[0]], hosts[rule[1]].getAddr(), hosts[rule[2]].getAddr(), services[rule[3+ns]].getPort(), services[rule[3+ns]].getProtocol()[i], "ACCEPT")
+            set_rule(chains[rule[0]], hosts[rule[1]].getAddr(), hosts[rule[2]].getAddr(), services[rule[3+ns]].getPort(), services[rule[3+ns]].getProtocol()[i], action)
 
 
 def load_profile_menu():
@@ -144,6 +161,25 @@ def load_profile_menu():
         else:
             print("\nEnter your choice - \n")
             interactions.show_profiles_menu()
+        choice = -1
+
+
+def modes_menu():
+    print("\nEnter your choice - \n")
+    interactions.show_modes_menu()
+    choice = -1;
+    all_profiles = []
+    while choice == -1:
+        choice = assert_choice(input("\n> "))
+        if choice == interactions.MODE_DROP:
+            switch_mode("DROP")
+        elif choice == interactions.MODE_ACCEPT:
+            switch_mode("ACCEPT")
+        elif choice == interactions.MODE_BACK:
+            return
+        else:
+            print("\nEnter your choice - \n")
+            interactions.show_modes_menu()
         choice = -1
 
 

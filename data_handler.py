@@ -36,11 +36,18 @@ def retrieve_profiles():
     with open('profiles.json') as profiles_file:
         data = json.load(profiles_file)
         all_profiles = []
-        
         for p in data:
             all_profiles.append(p)
 
         return all_profiles 
+
+
+def retrieve_block_list():
+    ip_list = []
+    with open("addresses.list") as file:
+        for line in file:
+            ip_list.append(line.rstrip())
+    return ip_list
 
 
 def show_profiles(data):

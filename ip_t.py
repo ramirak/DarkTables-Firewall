@@ -22,7 +22,9 @@ def set_rule(direction, s_host, d_host, d_port, protocol, action):
 
     switch_dir(direction)
 
-    ip_1 = "iptables -A " + direction + " -m state --state RELATED,ESTABLISHED"
+    ip_1 = "iptables -A " + direction
+    if action == "ACCEPT":
+        ip_1 += " -m state --state RELATED,ESTABLISHED"
     if protocol != "any":
         ip_1 += " -p " + protocol + " --match multiport --sport " + d_port
     if s_host != "any":
@@ -41,6 +43,13 @@ def switch_dir(direction):
     if direction == "OUTPUT":
         return "INPUT"
     return "OUTPUT"
+
+
+def switch_mode(action):
+    c1 = "iptables -P INPUT" + action
+    c2 = "iptables -P OUTPUT " + action
+    proc = subprocess.Popen(c1.split(), stdout=subprocess.PIPE)
+    proc = subprocess.Popen(c2.split(), stdout=subprocess.PIPE)
 
 
 def is_valid_ip(address):
