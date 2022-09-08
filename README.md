@@ -1,12 +1,10 @@
-<p align="center">
-# DarkTables Firewall -
+# DarkTables Firewall
 ## Securing your Linux machines has never been easier
-</p>
 
 Secure your Linux devices easily by creating rules for your network activity via command line interface.
 
 <p align="center">
-![alt text](https://github.com/ramirak/DarkTables-Firewall/blob/master/logo.png?raw=true)
+![image](https://user-images.githubusercontent.com/63206167/189040436-11a7d4bf-69ce-4e50-a9e0-81f9ba24affc.png)
 </p>
 
 ## Features
@@ -19,3 +17,12 @@ Secure your Linux devices easily by creating rules for your network activity via
 - Basic built-in profiles for browsing 🤓, paranoids 😨, and heros (no security  😊 ) ! 
 - More to be implemented in the future 
 
+* This program must be run as root
+* You should have python3 installed on your machine
+
+## Run
+```
+sudo apt update
+sudo apt install python3
+sudo python3 darktables.py
+```
