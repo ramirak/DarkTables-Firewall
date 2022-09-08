@@ -1,6 +1,6 @@
 NONE, SHOW_HOSTS, SHOW_SERVICES, ADD_HOST , ADD_SERVICE, BACK, *_  = range(10)
 OP_NONE,OP_MODES, OP_PROFILES, OP_OBJECTS, OP_RULES, EXIT, *_ = range(10)
-RULE_NONE, RULE_ADD, RULE_LIST, RULE_BACK, *_ = range(10)
+RULE_NONE, RULE_ADD, RULE_LIST, RULE_SHOW, RULE_REMOVE_ALL, RULE_BACK, *_ = range(10)
 CHAIN_NONE, CHAIN_IN, CHAIN_OUT, *_ = range(5)
 PROFILES_NONE, LIST_PROFILES, LOAD_PROFILE, PROFILE_BACK, *_ = range(5)
 MODE_NONE, MODE_DROP, MODE_ACCEPT, MODE_BACK, *_ = range(5) 
@@ -24,6 +24,8 @@ def show_objects_menu():
 def show_rules_menu():
     print("(" + str(RULE_ADD) +")  Add new rule")
     print("(" + str(RULE_LIST) +")  Block from list")
+    print("(" + str(RULE_SHOW) +")  My rules")
+    print("(" + str(RULE_REMOVE_ALL) +")  Remove all")
     print("(" + str(RULE_BACK) +")  Back")
 
 

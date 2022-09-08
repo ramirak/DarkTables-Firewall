@@ -1,6 +1,6 @@
 import os, sys
 import data_handler, interactions
-from ip_t import set_rule, switch_mode
+from ip_t import clear_chains, set_rule, show_chains, switch_mode
 
 def init():
     hosts = data_handler.retrieve_hosts()
@@ -74,6 +74,10 @@ def rules_menu(hosts,services,chains):
                 ip_list = data_handler.retrieve_block_list()
                 for addr in ip_list:
                     set_rule("OUTPUT", "any", addr,"any","any","DROP")
+        elif choice == interactions.RULE_SHOW:
+            show_chains()
+        elif choice == interactions.RULE_REMOVE_ALL:
+            clear_chains()
         elif choice == interactions.RULE_BACK:
             return
         else:

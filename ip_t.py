@@ -45,6 +45,15 @@ def switch_dir(direction):
     return "OUTPUT"
 
 
+def clear_chains():
+    subprocess.Popen("iptables -F".split(), stdout=subprocess.PIPE)
+
+
+def show_chains():
+    proc = subprocess.Popen("iptables -nL".split(), stdout=subprocess.PIPE)
+    print(proc.stdout.read().decode())
+
+    
 def switch_mode(action):
     c1 = "iptables -P INPUT " + action
     c2 = "iptables -P OUTPUT " + action

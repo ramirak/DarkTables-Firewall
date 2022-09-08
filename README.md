@@ -20,6 +20,7 @@ Secure your Linux devices easily by creating rules for your network activity via
 ## Notes
 - This program must be run as root
 - You should have python3 installed on your machine
+- Blacklist example file taken from - https://iplists.firehol.org/
 
 ## Run
 ```
