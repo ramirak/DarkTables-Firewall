@@ -1,9 +1,13 @@
+<p align="center">
 # DarkTables Firewall -
 ## Securing your Linux machines has never been easier
+</p>
 
 Secure your Linux devices easily by creating rules for your network activity via command line interface.
 
-![alt text](blob/master/logo.png?raw=true)
+<p align="center">
+![alt text](https://github.com/ramirak/DarkTables-Firewall/blob/master/logo.png?raw=true)
+</p>
 
 ## Features
 
