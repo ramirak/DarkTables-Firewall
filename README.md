@@ -3,6 +3,8 @@
 
 Secure your Linux devices easily by creating rules for your network activity via command line interface.
 
+![alt text](blob/master/logo.png?raw=true)
+
 ## Features
 
 - Create objects for representing hosts and services on your network
