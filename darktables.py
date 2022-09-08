@@ -115,7 +115,7 @@ def add_rule_menu(hosts, services, chains):
     
     # Service
     choice = -1
-    num_srv = 0
+    num_srv = 1
     print("\nChoose Service - \n")
     while choice == -1:
         data_handler.show_services(services)
@@ -141,7 +141,7 @@ def add_rule_menu(hosts, services, chains):
     # Rule setup
     for ns in range(num_srv):
         for i in range(len(services[rule[3]].getProtocol())):
-            set_rule(chains[rule[0]], hosts[rule[1]].getAddr(), hosts[rule[2]].getAddr(), services[rule[3+ns]].getPort(), services[rule[3+ns]].getProtocol()[i], action)
+            set_rule(chains[rule[0]], hosts[rule[1]].getAddr(), hosts[rule[2]].getAddr(), services[rule[3+ns]].getPort(), services[rule[3+ns]].getProtocol()[i - 1], action)
 
 
 def load_profile_menu():
