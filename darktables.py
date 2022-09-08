@@ -73,7 +73,7 @@ def rules_menu(hosts,services,chains):
             if(res == "y"):
                 ip_list = data_handler.retrieve_block_list()
                 for addr in ip_list:
-                    set_rule("OUTBOUND", "any", addr,"any","any","DROP")
+                    set_rule("OUTPUT", "any", addr,"any","any","DROP")
         elif choice == interactions.RULE_BACK:
             return
         else:
