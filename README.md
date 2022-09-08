@@ -4,7 +4,7 @@
 Secure your Linux devices easily by creating rules for your network activity via command line interface.
 
 <p align="center">
-![image](https://user-images.githubusercontent.com/63206167/189040436-11a7d4bf-69ce-4e50-a9e0-81f9ba24affc.png)
+<img src="https://user-images.githubusercontent.com/63206167/189040436-11a7d4bf-69ce-4e50-a9e0-81f9ba24affc.png" width="200">
 </p>
 
 ## Features
@@ -17,8 +17,9 @@ Secure your Linux devices easily by creating rules for your network activity via
 - Basic built-in profiles for browsing 🤓, paranoids 😨, and heros (no security  😊 ) ! 
 - More to be implemented in the future 
 
-* This program must be run as root
-* You should have python3 installed on your machine
+## Notes
+- This program must be run as root
+- You should have python3 installed on your machine
 
 ## Run
 ```
