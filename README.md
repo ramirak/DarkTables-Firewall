@@ -23,7 +23,7 @@ Secure your Linux devices easily by creating rules for your network activity via
 - Blacklist example file taken from - https://iplists.firehol.org/
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/63206167/189294025-3246e759-0734-422d-92be-77bfb58edd59.gif" alt="demo"  width="350" />
+<img src="https://user-images.githubusercontent.com/63206167/189294025-3246e759-0734-422d-92be-77bfb58edd59.gif" alt="demo"  width="800" />
 </p>
 
 ## Run
