@@ -19,10 +19,6 @@ Secure your Linux devices easily by creating rules for your network activity via
 - Basic built-in profiles for browsing 🤓, paranoids 😨, and heros (no security  😊 ) ! 
 - More to be implemented in the future 
 
-<p align="center">
-<img src="https://user-images.githubusercontent.com/63206167/189295755-ff364a6e-ef5b-43eb-aa8d-d4595d919b46.gif" alt="demo"  width="650" />
-</p>
-
 ## Notes
 - This program must be run as root
 - You should have python3 installed on your machine
@@ -34,3 +30,6 @@ sudo apt update
 sudo apt install python3
 sudo python3 darktables.py
 ```
+<p align="center">
+<img src="https://user-images.githubusercontent.com/63206167/189295755-ff364a6e-ef5b-43eb-aa8d-d4595d919b46.gif" alt="demo"  width="650" />
+</p>
