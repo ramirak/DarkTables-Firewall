@@ -14,6 +14,8 @@ Secure your Linux devices easily by creating rules for your network activity via
 - Switch between two modes - Blacklist, and Whitelist
 - Block IP addresses from a file list
 - Create and load different profiles for easy switching in different situations
+
+
 - Basic built-in profiles for browsing 🤓, paranoids 😨, and heros (no security  😊 ) ! 
 - More to be implemented in the future 
 
@@ -23,7 +25,7 @@ Secure your Linux devices easily by creating rules for your network activity via
 - Blacklist example file taken from - https://iplists.firehol.org/
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/63206167/189294945-0faaf1f3-eab6-4f5a-ba2c-b20c76cf0a77.gif" alt="demo"  width="800" />
+<img src="https://user-images.githubusercontent.com/63206167/189295755-ff364a6e-ef5b-43eb-aa8d-d4595d919b46.gif" alt="demo"  width="700" />
 </p>
 
 ## Run
