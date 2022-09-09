@@ -1,4 +1,4 @@
-NONE, SHOW_HOSTS, SHOW_SERVICES, ADD_HOST , ADD_SERVICE, BACK, *_  = range(10)
+NONE, SHOW_HOSTS, SHOW_SERVICES, BACK, *_  = range(10)
 OP_NONE,OP_MODES, OP_PROFILES, OP_OBJECTS, OP_RULES, EXIT, *_ = range(10)
 RULE_NONE, RULE_ADD, RULE_LIST, RULE_SHOW, RULE_REMOVE_ALL, RULE_BACK, *_ = range(10)
 CHAIN_NONE, CHAIN_IN, CHAIN_OUT, *_ = range(5)
@@ -16,8 +16,6 @@ def show_main_menu():
 def show_objects_menu():
     print("(" + str(SHOW_HOSTS) +")  Show all hosts")
     print("(" + str(SHOW_SERVICES) +")  Show all services")
-    print("(" + str(ADD_HOST) +")  Add new host")
-    print("(" + str(ADD_SERVICE) +")  Add new service")
     print("(" + str(BACK) +")  Back")
 
 

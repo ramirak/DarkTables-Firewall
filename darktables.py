@@ -39,6 +39,52 @@ def main_menu(hosts,services,chains):
             interactions.show_main_menu()
         choice = -1
 
+
+def modes_menu():
+    print("\nEnter your choice - \n")
+    interactions.show_modes_menu()
+    choice = -1;
+    all_profiles = []
+    while choice == -1:
+        choice = assert_choice(input("\n> "))
+        if choice == interactions.MODE_DROP:
+            switch_mode("DROP")
+        elif choice == interactions.MODE_ACCEPT:
+            switch_mode("ACCEPT")
+        elif choice == interactions.MODE_BACK:
+            return
+        else:
+            print("\nEnter your choice - \n")
+            interactions.show_modes_menu()
+        choice = -1
+
+
+def load_profile_menu():
+    print("\nEnter your choice - \n")
+    interactions.show_profiles_menu()
+    choice = -1;
+    all_profiles = data_handler.retrieve_profiles()
+    while choice == -1:
+        choice = assert_choice(input("\n> "))
+        if choice == interactions.LIST_PROFILES:
+            data_handler.show_profiles(all_profiles)
+        elif choice == interactions.LOAD_PROFILE:
+            profile = -1
+            while profile == -1:
+                print("\nChoose your profile -\n")
+                data_handler.show_profiles(all_profiles)
+                profile = assert_choice(input("\n> "))
+                if(profile < 0 or profile > len(all_profiles)):
+                    profile = -1
+            load_profile(all_profiles,profile - 1)
+        elif choice == interactions.PROFILE_BACK:
+            return
+        else:
+            print("\nEnter your choice - \n")
+            interactions.show_profiles_menu()
+        choice = -1
+
+
 def object_creation_menu(hosts,services,chains):
     print("\nEnter your choice - \n")
     interactions.show_objects_menu()
@@ -49,16 +95,13 @@ def object_creation_menu(hosts,services,chains):
             data_handler.show_hosts(hosts)
         elif choice == interactions.SHOW_SERVICES:
             data_handler.show_services(services)
-        elif choice == interactions.ADD_HOST:
-            pass
-        elif choice == interactions.ADD_SERVICE:
-            pass
         elif choice == interactions.BACK:
             return
         else:
             print("\nEnter your choice - \n")
             interactions.show_objects_menu()
         choice = -1
+
 
 def rules_menu(hosts,services,chains):
     print("\nEnter your choice - \n")
@@ -84,6 +127,7 @@ def rules_menu(hosts,services,chains):
             print("\nEnter your choice - \n")
             interactions.show_rules_menu()
         choice = -1
+
 
 def add_rule_menu(hosts, services, chains):
     rule = []
@@ -148,43 +192,21 @@ def add_rule_menu(hosts, services, chains):
             set_rule(chains[rule[0]], hosts[rule[1]].getAddr(), hosts[rule[2]].getAddr(), services[rule[3+ns]].getPort(), services[rule[3+ns]].getProtocol()[i - 1], action)
 
 
-def load_profile_menu():
-    print("\nEnter your choice - \n")
-    interactions.show_profiles_menu()
-    choice = -1;
-    all_profiles = []
-    while choice == -1:
-        choice = assert_choice(input("\n> "))
-        if choice == interactions.LIST_PROFILES:
-            all_profiles = data_handler.retrieve_profiles()
-            data_handler.show_profiles(all_profiles)
-        elif choice == interactions.LOAD_PROFILE:
-            pass
-        elif choice == interactions.PROFILE_BACK:
-            return
-        else:
-            print("\nEnter your choice - \n")
-            interactions.show_profiles_menu()
-        choice = -1
-
-
-def modes_menu():
-    print("\nEnter your choice - \n")
-    interactions.show_modes_menu()
-    choice = -1;
-    all_profiles = []
-    while choice == -1:
-        choice = assert_choice(input("\n> "))
-        if choice == interactions.MODE_DROP:
-            switch_mode("DROP")
-        elif choice == interactions.MODE_ACCEPT:
-            switch_mode("ACCEPT")
-        elif choice == interactions.MODE_BACK:
-            return
-        else:
-            print("\nEnter your choice - \n")
-            interactions.show_modes_menu()
-        choice = -1
+def load_profile(data, profile_id):
+    profiles_names = []
+    for p in data:
+        profiles_names.append(p)
+    clear_chains()
+    print("Loading rules . . . ")
+    for p in data[profiles_names[profile_id]]:
+        for i in range(len(p["proto"])):
+            print(p["dir"] + ": " + p["src"] + ", " + p["dst"] + ", " + p["dport"] + ", " + p["proto"][i] + ", " + p["action"])
+            set_rule(p["dir"], p["src"], p["dst"], p["dport"], p["proto"][i], p["action"])
+    
+    if(p["action"] == "ACCEPT"):
+        switch_mode("DROP")
+    else:
+        switch_mode("ACCEPT")
 
 
 def assert_choice(choice):

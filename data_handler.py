@@ -32,14 +32,10 @@ def retrieve_services():
 
 
 def retrieve_profiles():
-    # Opening services JSON file
+    # Opening profiles JSON file
     with open('profiles.json') as profiles_file:
         data = json.load(profiles_file)
-        all_profiles = []
-        for p in data:
-            all_profiles.append(p)
-
-        return all_profiles 
+        return data 
 
 
 def retrieve_block_list():
@@ -51,9 +47,10 @@ def retrieve_block_list():
 
 
 def show_profiles(data):
-    for i in range(len(data)):
-        print("- " + str(i+1) + " " + data[i])
-
+    i = 1
+    for p in data:
+        print("- " + str(i) + " " + p)
+        i+=1
 
 def show_hosts(hosts):
     i = 1

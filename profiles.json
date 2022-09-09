@@ -1,17 +1,18 @@
 {
     "basic-usage": [
-        ["OUTPUT", "any","any", "80",["udp","tcp"],"ACCEPT"],
-        ["OUTPUT", "any","any", "443",["udp","tcp"],"ACCEPT"],
-        ["OUTPUT", "any","any", "53",["udp"],"ACCEPT"],
-        ["OUTPUT", "any","any", "67",["udp","tcp"],"ACCEPT"],
-        ["OUTPUT", "any","any", "68",["udp","tcp"],"ACCEPT"]        
+        {"dir":"OUTPUT", "src":"any", "dst":"any", "dport":"80", "proto":["tcp","udp"], "action":"ACCEPT"},
+        {"dir":"OUTPUT", "src":"any", "dst":"any", "dport":"443", "proto":["tcp","udp"], "action":"ACCEPT"},
+        {"dir":"OUTPUT", "src":"any", "dst":"any", "dport":"53", "proto":["udp"], "action":"ACCEPT"},
+        {"dir":"OUTPUT", "src":"any", "dst":"any", "dport":"67", "proto":["tcp","udp"], "action":"ACCEPT"},
+        {"dir":"OUTPUT", "src":"any", "dst":"any", "dport":"68", "proto":["tcp","udp"], "action":"ACCEPT"}
     ],
     "paranoid":[
-        ["OUTPUT", "any","any", "any",["any"],"DROP"],
-        ["INPUT", "any","any", "any",["any"],"DROP"]               
+        {"dir":"OUTPUT", "src":"any", "dst":"any", "dport":"any", "proto":["any"], "action":"DROP"},
+        {"dir":"INPUT", "src":"any", "dst":"any", "dport":"any", "proto":["any"], "action":"DROP"}
     ],
     "hero":[
-        ["OUTPUT", "any","any", "any",["any"],"ACCEPT"],
-        ["INPUT", "any","any", "any",["any"],"ACCEPT"]               
+        {"dir":"OUTPUT", "src":"any", "dst":"any", "dport":"any", "proto":["any"], "action":"ACCEPT"},
+        {"dir":"INPUT", "src":"any", "dst":"any", "dport":"any", "proto":["any"], "action":"ACCEPT"}
     ]
 }
+
