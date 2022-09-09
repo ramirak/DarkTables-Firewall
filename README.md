@@ -22,6 +22,10 @@ Secure your Linux devices easily by creating rules for your network activity via
 - You should have python3 installed on your machine
 - Blacklist example file taken from - https://iplists.firehol.org/
 
+<p align="center">
+![27a9a1c7-19f7-4318-a2fe-718b135704fc](https://user-images.githubusercontent.com/63206167/189294025-3246e759-0734-422d-92be-77bfb58edd59.gif)
+</p>
+
 ## Run
 ```
 sudo apt update
