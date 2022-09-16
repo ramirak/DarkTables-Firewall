@@ -24,12 +24,4 @@ Secure your Linux devices easily by creating rules for your network activity via
 
 ## Notes
 - This program must be run as root
-- You should have python3 installed on your machine
 - Blacklist example file taken from - https://iplists.firehol.org/
-
-## Run
-```
-sudo apt update
-sudo apt install python3
-sudo python3 darktables.py
-```
