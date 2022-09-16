@@ -12,10 +12,10 @@ def init():
     
     clear = lambda: os.system('clear')
     while(True):
-        with open('logo.txt', 'r') as f:
-            print(f.read())
+        if os.path.isfile('logo.txt'):
+            with open('logo.txt', 'r') as f:
+                print(f.read())
         main_menu(hosts,services,chains)
-#        clear()
 
 
 def main_menu(hosts,services,chains):
